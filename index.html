@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link  href="http://fonts.googleapis.com/css?family=Reenie+Beanie:regular" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="./styles/styles.css">
   <title>Angular Friday Lecture -- sticky notes</title>
 </head>
-<body>
+<body ng-controller="MainCtrl">
+<!-- {{test}} -->
+<!-- {{test2}} -->
+  <input type="text" ng-model="note.title" placeholder="note title">
+  <input type="text" ng-model="note.content" placeholder="note content">
+  <button ng-click="saveNote(note)">Add Note</button>
 
+  <ul>
+    <li ng-repeat="note in notes">
+      <a href="#">
+        <h2>{{note.title}}</h2>
+          <p>{{note.content}}</p>
+      </a>
+    </li>
+  </ul>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
 <script src="./js/app.js"></script>
-<script src="./js/mainCtrl.js"></script>
+<script src="./js/MainCtrl.js"></script>
 <script src="./js/mainSvc.js"></script>
 </body>
 </html>
